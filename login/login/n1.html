@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+version: 5.6.1
+author: morgana
+license: Apache Licence
+contact: vipmorgana@gmail.com
+site:
+software: PyCharm
+file: n1.html
+time: 2017/11/25 下午11:23
+
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.0.min.js"></script>
+<script>
+$.ajax({
+  url:"http://127.0.0.1:8000/login/",
+  type:"POST",
+  success:function (data) {
+    console.log(data);
+
+  }
+})
+
+</script>
+</body>
+</html>

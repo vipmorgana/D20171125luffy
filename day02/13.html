@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>发送AJAX请求</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue-resource.min.js"></script>
+</head>
+<body>
+<div id="itany">
+    <button v-on:click="send">向百度搜索发送JSONP请求</button>
+</div>
+</body>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+            name:'za'
+        },
+        methods:{
+            send:function () {
+                this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                    {params:{wd:'a'},
+                        jsonp:'cb', //百度使用的jsonp参数名为cb，所以需要修改,默认使用的是callbakc参数就不用修改
+                    }).then(function (resp) {
+                    console.log(resp.data)
+                }).catch(function (err) {
+                    console.log(err)
+                })
+            }
+        }
+
+
+    })
+</script>
+</html>
